@@ -19,4 +19,6 @@ Besides generating a AnimatorController from code, AC2 also offers:
 - !AssetRef is used to load resources by path
 - You can use !BlendTree etc. to refer native Unity classes
 
+### License
+MIT
 ▼ ◄▼ ◄ ▲ ► ▼ ◄ ▲ ► ▼ ▼ ◄ ▲ ► ▼ ◄ ▲ ► ▼ ◄ ▲ ► ▼ ◄ ▲ ► ▼ ◄ ▲ ▼ ◄ ▲ ► ▼ ◄ ▲ ►▼ ◄▼ ◄ ▲ ► ▼ ◄ ▲ ► ▼
