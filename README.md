@@ -1,3 +1,4 @@
+![progragameric](https://progragameric.s3.amazonaws.com/Progragameric_V2+dark+1600.png)
 ▼ ◄▼ ◄ ▲ ► ▼ ◄ ▲ ► ▼ ▼ ◄ ▲ ► ▼ ◄ ▲ ► ▼ ◄ ▲ ► ▼ ◄ ▲ ► ▼ ◄ ▲ ▼ ◄ ▲ ► ▼ ◄ ▲ ►▼ ◄▼ ◄ ▲ ► ▼ ◄ ▲ ► ▼
 AC2 is a Unity plugin to convert a YAML template to an AnimatorController asset.
 ### Features
@@ -15,4 +16,5 @@ Besides generating a AnimatorController from code, AC2 also offers:
 - !Ref is used for referencing existing object
 - !AssetRef is used to load resources by path
 - You can use !BlendTree etc. to refer native Unity classes
+
 ▼ ◄▼ ◄ ▲ ► ▼ ◄ ▲ ► ▼ ▼ ◄ ▲ ► ▼ ◄ ▲ ► ▼ ◄ ▲ ► ▼ ◄ ▲ ► ▼ ◄ ▲ ▼ ◄ ▲ ► ▼ ◄ ▲ ►▼ ◄▼ ◄ ▲ ► ▼ ◄ ▲ ► ▼
