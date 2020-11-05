@@ -1,5 +1,7 @@
 ![progragameric](https://progragameric.s3.amazonaws.com/Progragameric_Dark_400.png)
+
 ▼ ◄▼ ◄ ▲ ► ▼ ◄ ▲ ► ▼ ▼ ◄ ▲ ► ▼ ◄ ▲ ► ▼ ◄ ▲ ► ▼ ◄ ▲ ► ▼ ◄ ▲ ▼ ◄ ▲ ► ▼ ◄ ▲ ►▼ ◄▼ ◄ ▲ ► ▼ ◄ ▲ ► ▼
+
 AC2 is a Unity plugin to convert a YAML template to an AnimatorController asset.
 ### Features
 Besides generating a AnimatorController from code, AC2 also offers:
