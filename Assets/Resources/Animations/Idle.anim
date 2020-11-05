@@ -28024,10 +28024,9 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 2.0300002
-    functionName: Melee
+    functionName: Idle
     data: 
-    objectReferenceParameter: {fileID: 11500000, guid: 6cc54c1c39acd44ecaab2ac52a634ab8,
-      type: 3}
+    objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0

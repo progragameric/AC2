@@ -9,10 +9,11 @@ using UnityEditor.Animations;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NodeDeserializers;
 using YamlDotNet.Serialization.ObjectFactories;
+using AutoMapper;
 
 namespace AC2
 {
-    public class Creator : MonoBehaviour
+    public class AnimatorBuilder : MonoBehaviour
     {
         public TextAsset inputTemplate;
         // Start is called before the first frame update
@@ -21,8 +22,6 @@ namespace AC2
             var template = CreateController(inputTemplate.text);
             GeneratePostAnimation(template);
             EditAnimationClip(template);
-
-            AssetDatabase.Refresh();
             AssetDatabase.SaveAssets();
         }
 
@@ -31,18 +30,28 @@ namespace AC2
         {
 
         }
-
         private Template CreateController(string yml)
         {
-
-            var deserializer = new DeserializerBuilder()
+            var scannerBuilder = new DeserializerBuilder()
                        .WithTagMapping("!AnimationClip", typeof(AnimationClip))
                        .WithTagMapping("!BlendTree", typeof(BlendTree))
                        .WithTagMapping("!AssetRef", typeof(AssetRef))
-                       .WithTagMapping("!Ref", typeof(Ref))
-                   .WithNodeDeserializer(inner => new AssetRefNodeDeserializer(inner, new DefaultObjectFactory()), s => s.InsteadOf<ObjectNodeDeserializer>())
-                   .Build();
-            Template template = deserializer.Deserialize<Template>(yml);
+                       .WithTagMapping("!Ref", typeof(Ref));
+
+            scannerBuilder.
+                     WithNodeDeserializer(inner => new ScannerNodeDeserializer(inner, new DefaultObjectFactory()), s => s.InsteadOf<ObjectNodeDeserializer>())
+                     .Build().Deserialize<Template>(yml);
+
+            var builderBuilder = new DeserializerBuilder()
+                       .WithTagMapping("!AnimationClip", typeof(AnimationClip))
+                       .WithTagMapping("!BlendTree", typeof(BlendTree))
+                       .WithTagMapping("!AssetRef", typeof(AssetRef))
+                       .WithTagMapping("!Ref", typeof(Ref));
+
+            Template template = builderBuilder
+                .WithNodeDeserializer(inner => new CreatorNodeDeserializer(inner, new DefaultObjectFactory()), s => s.InsteadOf<ObjectNodeDeserializer>())
+                   .Build().Deserialize<Template>(yml);
+
             AssetDatabase.CreateAsset(template.controller, $"{template.saveTo}/{template.name}.controller");
 
             return template;
@@ -123,5 +132,6 @@ namespace AC2
                 }
             }
         }
+
     }
 }
