@@ -24,9 +24,9 @@ MIT
 ![progragameric](https://progragameric.s3.amazonaws.com/Progragameric_Dark_400.png)
 
 **Check out my social media**
-YouTube[https://www.youtube.com/channel/UCxyBRX9WUI6mAo33L-BDqrQ]
-Twitter[https://twitter.com/progragameric]
-GitHub[https://github.com/progragameric]
-Instagram[https://www.instagram.com/progragameric/]
-Patreon[https://www.patreon.com/progragameric]
+- [YouTube](https://www.youtube.com/channel/UCxyBRX9WUI6mAo33L-BDqrQ)
+- [Twitter](https://twitter.com/progragameric)
+- [GitHub](https://github.com/progragameric)
+- [Instagram](https://www.instagram.com/progragameric)
+- [Patreon](https://www.patreon.com/progragameric)
 ▼ ◄▼ ◄ ▲ ► ▼ ◄ ▲ ► ▼ ▼ ◄ ▲ ► ▼ ◄ ▲ ► ▼ ◄ ▲ ► ▼ ◄ ▲ ► ▼ ◄ ▲ ▼ ◄ ▲ ► ▼ ◄ ▲ ►▼ ◄▼ ◄ ▲ ► ▼ ◄ ▲ ► ▼
