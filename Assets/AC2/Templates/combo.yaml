@@ -48,7 +48,6 @@ controller:
                       !AssetRef
                       path: Animations/Melee1Post
                     transitions:
-                     
                       - hasExitTime: true
                         destinationState:
                           !Ref
