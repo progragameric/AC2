@@ -89,6 +89,7 @@ namespace AC2 {
       to.mirrorParameterActive = from.mirrorParameterActive;
       // motion
       to.motion = from.motion;
+      
       // nameHash - skip
       // speed
       to.speed = from.speed;

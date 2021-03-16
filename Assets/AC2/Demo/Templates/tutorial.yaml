@@ -1,0 +1,26 @@
+name: TutorialAC
+saveTo: Assets/Resources/Animators
+controller:
+  parameters:
+  layers:
+  - name: Base Layer
+    stateMachine:
+      name: ROOT
+      stateMachines:
+      - stateMachine:
+          name: IDLE
+          states:
+          - state:
+              name: Idle
+              motion:
+                !AssetRef
+                path: Assets/Resources/Animations/Idle.anim
+              transitions:
+              - hasExitTime: true
+                isExit: true
+clips:
+- path: Assets/Resources/Animations/Idle.anim
+  events:
+  - objectReferenceParameter: Assets/Scripts/Player.cs
+    functionName: Idle
+    time: length * 0.9

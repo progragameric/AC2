@@ -54,6 +54,7 @@ namespace AC2
                 }
                 return true;
             }
+            
             return inner.Deserialize(parser, expectedType, nestedObjectDeserializer, out value);
         }
     }

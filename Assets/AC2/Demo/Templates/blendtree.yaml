@@ -1,0 +1,43 @@
+name: BlendTreeAC
+saveTo: Assets/Resources/Animators
+controller:
+  parameters:
+    - name: IsMelee
+      type: Bool
+    - name: MeleeCombo
+      type: Bool
+  layers:
+    - name: Base Layer
+      stateMachine:
+        name: ROOT
+        stateMachines:
+          - stateMachine:
+              name: TREE
+              entryTransitions:
+                - destinationState: 
+                    !Ref
+                    key: BlendTree
+              states: 
+                  - state:
+                      name: BlendTree
+                      speed: 0.5
+                      motion:
+                        !BlendTree
+                        blendParameter: IsMelee
+                        blendType: Simple1D
+                        children:
+                          - motion:
+                              !BlendTree
+                              name: SubTree
+                              blendParameter: IsMelee
+                              blendType: Simple1D
+                          - motion:
+                              !AssetRef
+                              path: Assets/Resources/Animations/Idle.anim
+
+clips:
+  - path: Assets/Resources/Animations/Melee1.anim
+    events:
+    - objectReferenceParameter: Assets/Scripts/Player.cs
+      functionName: Melee
+      time: length * 0.9 - 0.01

@@ -128,7 +128,7 @@ namespace AC2 {
         AnimatorControllerLayer layer = template.controller.layers[i];
         var rootStateMachine = layer.stateMachine;
         var cRootStateMachine = controller.layers[i].stateMachine;
-        WalkStateMachine(rootStateMachine, cRootStateMachine, null);
+        WalkStateMachine(controller, rootStateMachine, cRootStateMachine, null);
       }
     }
 
@@ -154,7 +154,7 @@ namespace AC2 {
       }
     }
 
-    public void WalkStateMachine(AnimatorStateMachine fromRootStateMachine, UnityEditor.Animations.AnimatorStateMachine toRootStateMachine, UnityEditor.Animations.AnimatorStateMachine parentStateMachine) {
+    public void WalkStateMachine(UnityEditor.Animations.AnimatorController controller, AnimatorStateMachine fromRootStateMachine, UnityEditor.Animations.AnimatorStateMachine toRootStateMachine, UnityEditor.Animations.AnimatorStateMachine parentStateMachine) {
 
       // anyStatePosition
       toRootStateMachine.anyStatePosition = fromRootStateMachine.anyStatePosition;
@@ -274,6 +274,9 @@ namespace AC2 {
     
           if (states.TryGetValue(fromState.name, out UnityEditor.Animations.AnimatorState toState)) {
             MappingUtility.MapAnimatorState(fromState, toState);
+            if(toState.motion is UnityEditor.Animations.BlendTree) {
+              AssetDatabase.AddObjectToAsset(toState.motion, controller);
+            }
             if (fromState.transitions != null) {
               // transitions
               foreach(AnimatorStateTransition fromStateTransition in fromState.transitions) {
@@ -314,7 +317,7 @@ namespace AC2 {
           AnimatorStateMachine fromStateMachine = fromChildStateMachine.stateMachine;
 
           if (stateMachines.TryGetValue(fromStateMachine.name, out UnityEditor.Animations.AnimatorStateMachine obj)) {
-            WalkStateMachine(fromStateMachine, obj, toRootStateMachine);
+            WalkStateMachine(controller, fromStateMachine, obj, toRootStateMachine);
           }
 
         }
