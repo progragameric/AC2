@@ -1,0 +1,169 @@
+name: ComboAC
+saveTo: Assets/Resources/Animators
+controller:
+  parameters:
+    - name: IsMelee
+      type: Bool
+    - name: MeleeCombo
+      type: Bool
+  layers:
+    - name: Base Layer
+      stateMachine:
+        name: ROOT
+        stateMachines:
+          - stateMachine:
+              name: IDLE
+              entryTransitions:
+                - destinationState: 
+                    !Ref
+                    key: Idle
+              transitions:
+                - destinationStateMachine:
+                    !Ref
+                    key: MELEE
+                  conditions:
+                    - mode: If
+                      parameter: IsMelee
+              states: 
+                - state:
+                    name: Idle
+                    speed: 0.5
+                    motion:
+                      !AssetRef
+                      path: Assets/Resources/Animations/Idle.anim
+                    transitions:
+                      - isExit: true
+                - state:
+                    name: Test
+                    speed: 0.5
+                    motion:
+                      !BlendTree
+                      blendParameter: IsMelee
+                      blendType: Simple1D
+       
+
+          - stateMachine:
+              name: MELEE
+              entryTransitions:
+                - destinationState: 
+                    !Ref
+                    key: Melee1
+                  conditions:
+                  - mode: If
+                    parameter: IsMelee 
+              transitions:
+                - destinationStateMachine:
+                    !Ref
+                    key: IDLE
+              states: 
+                - state:
+                    name: Melee1
+                    speed: 1
+                    motion:
+                      !AssetRef
+                      path: Assets/Resources/Animations/Melee1.anim
+                    transitions:
+                      - hasExitTime: true
+                        destinationState:
+                          !Ref
+                          key: Melee1Post
+                - state:
+                    name: Melee1Post
+                    speed: 1
+                    motion:
+                      !AssetRef
+                      path: Assets/Resources/Animations/Melee1Post.anim
+                    transitions:
+                      - isExit: true
+                        hasExitTime: true
+                      - destinationState:
+                          !Ref
+                          key: Melee2
+                        conditions:
+                          - mode: If
+                            parameter: MeleeCombo
+                - state:
+                    name: Melee2
+                    speed: 1
+                    motion:
+                      !AssetRef
+                      path: Assets/Resources/Animations/Melee2.anim
+                    transitions:
+                      - hasExitTime: true
+                        destinationState:
+                          !Ref
+                          key: Melee2Post
+                - state:
+                    name: Melee2Post
+                    speed: 1
+                    motion:
+                      !AssetRef
+                      path: Assets/Resources/Animations/Melee2Post.anim
+                    transitions:
+                      - isExit: true
+                        hasExitTime: true
+                      - destinationState:
+                          !Ref
+                          key: Melee3
+                        conditions:
+                          - mode: If
+                            parameter: MeleeCombo
+                - state:
+                    name: Melee3
+                    speed: 1
+                    motion:
+                      !AssetRef
+                      path: Assets/Resources/Animations/Melee3.anim
+                    transitions:
+                      - hasExitTime: true
+                        destinationState:
+                          !Ref
+                          key: Melee3Post
+                - state:
+                    name: Melee3Post
+                    speed: 1
+                    motion:
+                      !AssetRef
+                      path: Assets/Resources/Animations/Melee3Post.anim
+                    transitions:
+                      - isExit: true
+                        hasExitTime: true
+
+                      
+                    
+                       
+                
+clips:
+  - path: Assets/Resources/Animations/Melee1.anim
+    events:
+    - objectReferenceParameter: Assets/Scripts/Player.cs
+      functionName: Melee
+      time: length * 0.9 - 0.01
+  - path: Assets/Resources/Animations/Melee1Post.anim
+    length: 0.05
+    events:
+    - objectReferenceParameter: Assets/Scripts/Player.cs
+      functionName: Melee
+      time: length * 0.9 - 0.01
+  - path: Assets/Resources/Animations/Melee2.anim
+    events:
+    - objectReferenceParameter: Assets/Scripts/Player.cs
+      functionName: Melee
+      time: length * 0.9 - 0.01
+  - path: Assets/Resources/Animations/Melee2Post.anim
+    length: 0.05
+    events:
+    - objectReferenceParameter: Assets/Scripts/Player.cs
+      functionName: Melee
+      time: length * 0.9 - 0.01
+  - path: Assets/Resources/Animations/Melee3.anim
+    events:
+    - objectReferenceParameter: Assets/Scripts/Player.cs
+      functionName: Melee
+      time: length * 0.9 - 0.01
+  - path: Assets/Resources/Animations/Melee3Post.anim
+    length: 0.05
+    events:
+    - objectReferenceParameter: Assets/Scripts/Player.cs
+      functionName: Melee
+      time: length * 0.9 - 0.01

@@ -6,11 +6,12 @@ Besides generating a AnimatorController from code, AC2 also offers:
 1. Generating transition animations
 2. Generating AnimationEvents
 3. Link Assets by Path
-4. Very light weight because AC2 uses native Unity classes
-5. Works well with animations from Adobe mixamo.
+4. Works well with animations from Adobe mixamo.
 ### Usage
-1. Add **AnimatorBuilder** to an empty game object.
-2. Drag the template to **Input Template** of **AnimatorBuilder**
+1. In Unity, Click "Window > AC2". AC2 window will popped up.
+2. Set your template directory as "Select Folder"
+3. Click "Generate"
+4. AnimatorController will be created according to "saveTo" attribute
 
 ### Notes
 - !Ref is used for referencing existing object

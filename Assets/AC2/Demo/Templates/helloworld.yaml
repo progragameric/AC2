@@ -1,0 +1,33 @@
+name: HelloWordAC
+saveTo: Assets/Resources/Animators
+controller:
+  layers:
+  - name: Base Layer
+    stateMachine:
+      name: Root
+      stateMachines:
+      - stateMachine:
+          name: IDLE
+          states:
+          - state:
+              name: Idle
+              speed: 1
+              motion:
+                !AssetRef
+                path: Assets/Resources/Animations/Idle.anim
+              transitions:
+                - isExit: true
+                  hasExitTime: true
+          
+clips:
+- path: Assets/Resources/Animations/Idle.anim
+  events:
+  - objectReferenceParameter: Assets/Scripts/Player.cs
+    functionName: Idle
+    time: length * 0.9 - 0.01
+- path: Assets/Resources/Animations/IdlePost.anim
+  events:
+  - objectReferenceParameter: Assets/Scripts/Player.cs
+    functionName: IdlePost
+    time: length * 0.9 - 0.01
+

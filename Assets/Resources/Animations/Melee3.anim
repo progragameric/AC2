@@ -52218,7 +52218,8 @@ AnimationClip:
   - time: 1.2200003
     functionName: Melee
     data: 
-    objectReferenceParameter: {fileID: 0}
+    objectReferenceParameter: {fileID: 11500000, guid: 6cc54c1c39acd44ecaab2ac52a634ab8,
+      type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
