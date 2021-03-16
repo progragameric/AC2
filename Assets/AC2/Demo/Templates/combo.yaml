@@ -33,15 +33,6 @@ controller:
                       path: Assets/Resources/Animations/Idle.anim
                     transitions:
                       - isExit: true
-                - state:
-                    name: Test
-                    speed: 0.5
-                    motion:
-                      !BlendTree
-                      blendParameter: IsMelee
-                      blendType: Simple1D
-       
-
           - stateMachine:
               name: MELEE
               entryTransitions:
@@ -128,11 +119,6 @@ controller:
                     transitions:
                       - isExit: true
                         hasExitTime: true
-
-                      
-                    
-                       
-                
 clips:
   - path: Assets/Resources/Animations/Melee1.anim
     events:
@@ -167,3 +153,4 @@ clips:
     - objectReferenceParameter: Assets/Scripts/Player.cs
       functionName: Melee
       time: length * 0.9 - 0.01
+
