@@ -63,6 +63,8 @@ namespace AC2 {
       });
 
       foreach(string guid in guids) {
+        stateMachines = new Dictionary <string, UnityEditor.Animations.AnimatorStateMachine>();
+        states = new Dictionary <string, UnityEditor.Animations.AnimatorState>();
         TextAsset inputTemplate = AssetDatabase.LoadAssetAtPath <TextAsset>(AssetDatabase.GUIDToAssetPath(guid));
 
         var template = ScanTemplate(inputTemplate.text);
